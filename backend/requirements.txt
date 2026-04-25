@@ -2,10 +2,11 @@ fastapi
 uvicorn
 python-dotenv
 requests
-langchain-huggingface
+langchain
 langchain-community
 faiss-cpu
 sentence-transformers
 streamlit
 pdfplumber
 python-docx
+torch
