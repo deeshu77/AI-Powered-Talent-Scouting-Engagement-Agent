@@ -118,5 +118,186 @@
     "skills": ["Public Relations", "Communication", "Media Handling"],
     "experience": "3 years",
     "projects": ["Press Campaign", "Brand Reputation Management"]
+  },
+  {
+    "name": "Ritika Malhotra",
+    "skills": ["Digital Marketing", "SEO", "Content Strategy"],
+    "experience": "3 years",
+    "projects": ["SEO optimization for e-commerce brand"]
+  },
+  {
+    "name": "Abhishek Tiwari",
+    "skills": ["Python", "FastAPI", "AWS"],
+    "experience": "2.8 years",
+    "projects": ["Scalable REST API"]
+  },
+  {
+    "name": "Nikhil Bansal",
+    "skills": ["Finance", "Excel", "Financial Modeling"],
+    "experience": "4 years",
+    "projects": ["Startup valuation model"]
+  },
+  {
+    "name": "Shreya Ghosh",
+    "skills": ["UI/UX Design", "Figma", "User Research"],
+    "experience": "2.5 years",
+    "projects": ["Mobile app redesign"]
+  },
+  {
+    "name": "Tarun Saxena",
+    "skills": ["Sales", "CRM", "Lead Generation"],
+    "experience": "3 years",
+    "projects": ["B2B sales pipeline"]
+  },
+  {
+    "name": "Harshit Arora",
+    "skills": ["React", "Node.js", "MongoDB"],
+    "experience": "2 years",
+    "projects": ["Social networking app"]
+  },
+  {
+    "name": "Ayesha Khan",
+    "skills": ["HR", "Recruitment", "Employee Engagement"],
+    "experience": "3.2 years",
+    "projects": ["Campus hiring program"]
+  },
+  {
+    "name": "Gaurav Khanna",
+    "skills": ["Python", "Machine Learning", "Pandas"],
+    "experience": "2.5 years",
+    "projects": ["Customer churn prediction"]
+  },
+  {
+    "name": "Kunal Sethi",
+    "skills": ["Product Management", "Agile", "Roadmapping"],
+    "experience": "4 years",
+    "projects": ["SaaS product launch"]
+  },
+  {
+    "name": "Neeraj Yadav",
+    "skills": ["DevOps", "Docker", "Kubernetes"],
+    "experience": "3 years",
+    "projects": ["CI/CD pipeline setup"]
+  },
+  {
+    "name": "Pallavi Desai",
+    "skills": ["Business Analysis", "SQL", "Data Visualization"],
+    "experience": "3 years",
+    "projects": ["Business dashboard"]
+  },
+  {
+    "name": "Ravi Shankar",
+    "skills": ["Python", "Flask", "Microservices"],
+    "experience": "2 years",
+    "projects": ["API gateway system"]
+  },
+  {
+    "name": "Irfan Ali",
+    "skills": ["Operations", "Supply Chain", "Logistics"],
+    "experience": "5 years",
+    "projects": ["Warehouse optimization"]
+  },
+  {
+    "name": "Sakshi Batra",
+    "skills": ["Content Writing", "Copywriting", "Branding"],
+    "experience": "2.2 years",
+    "projects": ["Brand storytelling campaigns"]
+  },
+  {
+    "name": "Aman Raj",
+    "skills": ["Cybersecurity", "Network Security", "Ethical Hacking"],
+    "experience": "3 years",
+    "projects": ["Security audit system"]
+  },
+  {
+    "name": "Devansh Gupta",
+    "skills": ["Python", "NLP", "Transformers"],
+    "experience": "1.9 years",
+    "projects": ["Chatbot using LLM"]
+  },
+  {
+    "name": "Vivek Mishra",
+    "skills": ["Java", "Spring Boot", "REST APIs"],
+    "experience": "3.5 years",
+    "projects": ["Banking backend system"]
+  },
+  {
+    "name": "Anjali Chatterjee",
+    "skills": ["HR Analytics", "Excel", "Power BI"],
+    "experience": "2.8 years",
+    "projects": ["Employee attrition analysis"]
+  },
+  {
+    "name": "Rohan Kapoor",
+    "skills": ["Investment Banking", "Valuation", "Mergers"],
+    "experience": "4 years",
+    "projects": ["M&A deal analysis"]
+  },
+  {
+    "name": "Tanvi Kulkarni",
+    "skills": ["UI Design", "Adobe XD", "Prototyping"],
+    "experience": "2.3 years",
+    "projects": ["SaaS dashboard design"]
+  },
+  {
+    "name": "Yash Agarwal",
+    "skills": ["Python", "Data Engineering", "ETL"],
+    "experience": "3 years",
+    "projects": ["Data pipeline system"]
+  },
+  {
+    "name": "Mohit Sinha",
+    "skills": ["Salesforce", "CRM", "Automation"],
+    "experience": "3.5 years",
+    "projects": ["CRM automation system"]
+  },
+  {
+    "name": "Komal Jain",
+    "skills": ["Marketing", "Social Media", "Campaign Management"],
+    "experience": "2 years",
+    "projects": ["Instagram growth campaign"]
+  },
+  {
+    "name": "Prateek Sharma",
+    "skills": ["Python", "FastAPI", "PostgreSQL"],
+    "experience": "2.4 years",
+    "projects": ["HR backend system"]
+  },
+  {
+    "name": "Snehal Patil",
+    "skills": ["Quality Assurance", "Testing", "Automation"],
+    "experience": "3 years",
+    "projects": ["Automated testing suite"]
+  },
+  {
+    "name": "Adarsh Singh",
+    "skills": ["Blockchain", "Solidity", "Web3"],
+    "experience": "2.5 years",
+    "projects": ["Smart contract system"]
+  },
+  {
+    "name": "Nandini Iyer",
+    "skills": ["Business Strategy", "Consulting", "Market Research"],
+    "experience": "4 years",
+    "projects": ["Market expansion strategy"]
+  },
+  {
+    "name": "Karthik Reddy",
+    "skills": ["Android Development", "Kotlin", "Firebase"],
+    "experience": "3 years",
+    "projects": ["Mobile banking app"]
+  },
+  {
+    "name": "Zoya Siddiqui",
+    "skills": ["HR", "Talent Acquisition", "Interviewing"],
+    "experience": "2.6 years",
+    "projects": ["Hiring automation system"]
+  },
+  {
+    "name": "Siddharth Bose",
+    "skills": ["Data Science", "Machine Learning", "Python"],
+    "experience": "2.7 years",
+    "projects": ["Recommendation engine"]
   }
+
 ]
