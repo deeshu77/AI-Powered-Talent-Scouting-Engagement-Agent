@@ -14,7 +14,12 @@ load_dotenv()
 
 def load_candidates():
     """Read candidates from the candidates.json file."""
-    with open("candidates.json") as f:
+    BASE_DIR = os.path.dirname(__file__)  # path of embeddings.py
+    file_path = os.path.join(BASE_DIR, "candidates.json")
+
+    print("Loading candidates from:", file_path)  # debug line
+
+    with open(file_path, "r") as f:
         return json.load(f)
 
 
