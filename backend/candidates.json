@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Rahul Sharma",
+    "skills": ["Python", "FastAPI", "Machine Learning"],
+    "experience": "2 years",
+    "projects": ["Chatbot", "Recommendation System"]
+  },
+  {
+    "name": "Ananya Gupta",
+    "skills": ["React", "JavaScript", "CSS"],
+    "experience": "1 year",
+    "projects": ["Portfolio Website", "E-commerce UI"]
+  },
+  {
+    "name": "Vikram Singh",
+    "skills": ["Java", "Spring Boot", "MySQL"],
+    "experience": "3 years",
+    "projects": ["Inventory System", "Banking API"]
+  },
+  {
+    "name": "Neha Verma",
+    "skills": ["Digital Marketing", "SEO", "Content Writing"],
+    "experience": "2 years",
+    "projects": ["Blog Growth Strategy", "Ad Campaign"]
+  },
+  {
+    "name": "Arjun Mehta",
+    "skills": ["Financial Analysis", "Excel", "Accounting"],
+    "experience": "4 years",
+    "projects": ["Budget Planning", "Financial Forecast Model"]
+  },
+  {
+    "name": "Priya Nair",
+    "skills": ["Human Resources", "Recruitment", "Onboarding"],
+    "experience": "3 years",
+    "projects": ["Hiring Pipeline", "Employee Engagement Program"]
+  },
+  {
+    "name": "Karan Patel",
+    "skills": ["Python", "Django", "REST APIs"],
+    "experience": "2 years",
+    "projects": ["Blog Platform", "CRM Backend"]
+  },
+  {
+    "name": "Sneha Iyer",
+    "skills": ["Data Analysis", "SQL", "Power BI"],
+    "experience": "2 years",
+    "projects": ["Sales Dashboard", "Customer Insights"]
+  },
+  {
+    "name": "Rohit Agarwal",
+    "skills": ["Sales", "Negotiation", "Lead Generation"],
+    "experience": "5 years",
+    "projects": ["B2B Sales Strategy", "Client Acquisition"]
+  },
+  {
+    "name": "Meera Joshi",
+    "skills": ["Legal Research", "Contract Drafting", "Compliance"],
+    "experience": "3 years",
+    "projects": ["Contract Review System", "Compliance Audit"]
+  },
+  {
+    "name": "Amit Kulkarni",
+    "skills": ["DevOps", "Docker", "AWS"],
+    "experience": "4 years",
+    "projects": ["CI/CD Pipeline", "Cloud Deployment"]
+  },
+  {
+    "name": "Pooja Reddy",
+    "skills": ["UI/UX Design", "Figma", "User Research"],
+    "experience": "2 years",
+    "projects": ["Mobile App Design", "User Journey Mapping"]
+  },
+  {
+    "name": "Sandeep Yadav",
+    "skills": ["C++", "Data Structures", "Algorithms"],
+    "experience": "1 year",
+    "projects": ["Compiler Design", "Game Engine"]
+  },
+  {
+    "name": "Ritika Kapoor",
+    "skills": ["Business Analysis", "Stakeholder Management", "Excel"],
+    "experience": "3 years",
+    "projects": ["Process Optimization", "Requirement Gathering"]
+  },
+  {
+    "name": "Manish Tiwari",
+    "skills": ["Cybersecurity", "Network Security", "Penetration Testing"],
+    "experience": "3 years",
+    "projects": ["Vulnerability Assessment", "Security Audit"]
+  },
+  {
+    "name": "Kavya Menon",
+    "skills": ["Content Writing", "Copywriting", "Social Media"],
+    "experience": "2 years",
+    "projects": ["Brand Campaign", "Content Strategy"]
+  },
+  {
+    "name": "Deepak Chauhan",
+    "skills": ["Machine Learning", "Python", "TensorFlow"],
+    "experience": "2 years",
+    "projects": ["Image Classifier", "Fraud Detection"]
+  },
+  {
+    "name": "Nisha Bansal",
+    "skills": ["Accounting", "Taxation", "Tally"],
+    "experience": "4 years",
+    "projects": ["GST Filing System", "Tax Reports"]
+  },
+  {
+    "name": "Harsh Vardhan",
+    "skills": ["Operations Management", "Logistics", "Supply Chain"],
+    "experience": "5 years",
+    "projects": ["Warehouse Optimization", "Delivery Tracking"]
+  },
+  {
+    "name": "Ishita Sen",
+    "skills": ["Public Relations", "Communication", "Media Handling"],
+    "experience": "3 years",
+    "projects": ["Press Campaign", "Brand Reputation Management"]
+  }
+]
