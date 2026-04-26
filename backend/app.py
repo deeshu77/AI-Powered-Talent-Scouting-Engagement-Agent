@@ -11,7 +11,7 @@ from embeddings import build_vectorstore, search_candidates
 from agent import analyze_candidate, calculate_final_score
 
 # ── Page config ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="AI Recruiting Agent", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="AI Recruiting Agent", page_icon="🧠", layout="wide")
 
 MAX_FILE_SIZE_MB = 20
 
@@ -77,9 +77,16 @@ def get_vectorstore():
     return build_vectorstore()
 
 
+# Always resolve candidates.json relative to this script file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CANDIDATES_PATH = os.path.join(BASE_DIR, "candidates.json")
+
 def load_candidate_count():
+    """Try all possible paths to count candidates."""
     try:
-        with open("candidates.json") as f:
+        from embeddings import find_candidates_file
+        path = find_candidates_file()
+        with open(path) as f:
             return len(json.load(f))
     except Exception:
         return 0
@@ -94,7 +101,12 @@ with st.sidebar:
     st.divider()
 
     st.markdown("### 📦 Database")
-    count = load_candidate_count()
+    # Get count from vectorstore if loaded, else show loading state
+    try:
+        col, _ = get_vectorstore()
+        count = col.count()
+    except Exception:
+        count = 0
     st.metric("Total Candidates", count)
 
     st.divider()
@@ -109,7 +121,7 @@ with st.sidebar:
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown("## 🤖 AI-Powered Talent Scouting & Engagement Agent")
+st.markdown("## 🧠 AI Recruiting Agent")
 st.markdown("Rank candidates against any job description using semantic search + Groq AI.")
 st.divider()
 
@@ -174,7 +186,13 @@ with right:
         try:
             collection, embed_model = get_vectorstore()
         except Exception as e:
+            import os
+            base = os.path.dirname(os.path.abspath(__file__))
+            cpath = os.path.join(base, "candidates.json")
             st.error(f"❌ Could not load candidate database: {e}")
+            st.error(f"🔍 Debug — looking for candidates.json at: {cpath}")
+            st.error(f"🔍 Debug — file exists: {os.path.exists(cpath)}")
+            st.error(f"🔍 Debug — files in folder: {os.listdir(base)}")
             st.stop()
 
         # Search for top candidates
