@@ -1,12 +1,16 @@
-fastapi
-uvicorn
+# Environment variables
 python-dotenv
+
+# HTTP requests (Groq API calls in agent.py)
 requests
-langchain
-langchain-community
-faiss-cpu
-sentence-transformers
+
+# Embeddings — no torch/transformers, lightweight (~50MB)
+fastembed
+
+# Vector search — pure Python, works on Streamlit Cloud without issues
+chromadb
+
+# Frontend
 streamlit
 pdfplumber
 python-docx
-torch
