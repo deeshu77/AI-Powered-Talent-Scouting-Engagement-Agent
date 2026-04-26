@@ -1,9 +1,7 @@
 # agent.py
-# Handles all Groq AI calls — conversation, interest score, skill analysis, recommendation.
-#
-# Get your free Groq API key at: https://console.groq.com
+# Handles all Groq AI calls.
+# Get free key: https://console.groq.com
 # Add to .env: GROQ_API_KEY=gsk_xxxxxxxxxxxx
-# Free tier: 14,400 requests/day, very fast (~300 tokens/sec)
 
 import os
 import re
@@ -19,10 +17,7 @@ GROQ_MODEL = "llama-3.3-70b-versatile"
 
 
 def ask_groq(prompt):
-    """
-    Send a prompt to Groq and return the response text.
-    Retries automatically if rate limited (HTTP 429).
-    """
+    """Send prompt to Groq, retry on rate limit."""
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
@@ -30,71 +25,77 @@ def ask_groq(prompt):
     payload = {
         "model": GROQ_MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0
+        "temperature": 0.3  # slight creativity for natural conversation
     }
-
     for attempt in range(3):
         response = requests.post(GROQ_URL, headers=headers, json=payload, timeout=30)
-
         if response.status_code == 200:
             return response.json()["choices"][0]["message"]["content"]
-
         if response.status_code == 429:
-            # Read the wait time Groq tells us, then retry
             wait = 15
             try:
-                details = response.json()["error"]["details"]
-                for d in details:
+                for d in response.json()["error"]["details"]:
                     if "retryDelay" in d:
                         wait = int(re.search(r'\d+', d["retryDelay"]).group()) + 2
                         break
             except Exception:
                 pass
-            print(f"⏳ Rate limited. Waiting {wait}s... (attempt {attempt + 1}/3)")
+            print(f"⏳ Rate limited. Waiting {wait}s... (attempt {attempt+1}/3)")
             time.sleep(wait)
             continue
-
         raise RuntimeError(f"Groq API error {response.status_code}: {response.text}")
-
-    raise RuntimeError("Groq failed after 3 retries. Daily quota may be exhausted.")
+    raise RuntimeError("Groq failed after 3 retries.")
 
 
 def analyze_candidate(candidate, jd):
     """
-    One Groq call per candidate that returns all four outputs:
-      1. Simulated recruiter-candidate conversation
-      2. Interest score (1-10)
-      3. Skill gap analysis (matched vs missing)
-      4. One-line recruiter recommendation
+    Full recruiter-grade analysis of one candidate against a JD.
+
+    Covers:
+      1. JD parsing     — extracts key requirements from the JD
+      2. Match analysis — explains WHY the candidate matches or doesn't
+      3. Simulated outreach conversation — realistic recruiter dialogue
+      4. Interest score — predicted candidate enthusiasm
+      5. Recommendation — clear action for the recruiter
 
     Returns: (conversation, interest_score, skill_analysis, recommendation)
     """
+
     prompt = f"""
-You are an expert AI recruiter. Analyze this candidate against the job description.
+You are a senior technical recruiter at a top tech company with 10+ years of experience.
+Your job is to evaluate candidates fairly and give recruiters clear, actionable insights.
 
-Candidate:
-- Name: {candidate['name']}
-- Skills: {', '.join(candidate['skills'])}
-- Experience: {candidate['experience']}
-- Projects: {', '.join(candidate['projects'])}
-
-Job Description:
+═══════════════════════════════════════
+JOB DESCRIPTION:
 {jd}
+═══════════════════════════════════════
+CANDIDATE PROFILE:
+Name: {candidate['name']}
+Skills: {', '.join(candidate['skills'])}
+Experience: {candidate['experience']}
+Projects: {', '.join(candidate['projects'])}
+═══════════════════════════════════════
 
-Reply in EXACTLY this format with no extra text:
+Perform a complete recruiter evaluation. Follow the EXACT format below.
+Do not add extra text, headers, or explanations outside the format.
 
 CONVERSATION:
-[2-3 line recruiter-candidate dialogue showing interest level]
+Recruiter: [Open with a specific reference to one of their projects or skills that matches the JD]
+{candidate['name']}: [Respond with genuine interest or hesitation based on how well they fit — be realistic]
+Recruiter: [Ask one specific follow-up question about a key JD requirement]
+{candidate['name']}: [Give a concrete answer referencing their actual experience]
 
-SCORE: [single integer 1-10]
+SCORE: [Integer 1-10 reflecting realistic interest level based on fit]
 
 SKILL_ANALYSIS:
-Matched: [skills from candidate that match JD requirements]
-Missing: [important JD skills the candidate lacks]
+Matched: [List specific skills/experience from candidate that directly satisfy JD requirements]
+Missing: [List specific skills from JD the candidate lacks — write "None" if fully qualified]
+Transferable: [Skills candidate has that could partially compensate for gaps]
 
 RECOMMENDATION:
-[One sentence: should recruiter contact this candidate and why?]
+[One decisive sentence: Contact / Maybe / Pass — state the reason using specific evidence from their profile]
 """
+
     try:
         raw = ask_groq(prompt)
 
@@ -102,7 +103,7 @@ RECOMMENDATION:
         conv = re.search(r'CONVERSATION:\s*(.*?)\s*SCORE:', raw, re.DOTALL)
         conversation = conv.group(1).strip() if conv else "Not available."
 
-        # Parse interest score → scale to 0-100
+        # Parse score → scale to 0-100
         score_m = re.search(r'SCORE:\s*(\d+)', raw)
         interest_score = min(int(score_m.group(1)), 10) * 10 if score_m else 50
 
@@ -121,9 +122,6 @@ RECOMMENDATION:
 
 
 def calculate_final_score(match_score, interest_score, match_weight=70):
-    """
-    Combine match score (skills similarity) and interest score (AI enthusiasm prediction).
-    match_weight: percentage given to skills match (default 70%)
-    """
+    """70% skills match + 30% predicted interest = final recruiter score."""
     interest_weight = 100 - match_weight
     return round((match_weight / 100) * match_score + (interest_weight / 100) * interest_score, 2)

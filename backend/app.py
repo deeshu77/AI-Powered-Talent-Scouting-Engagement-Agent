@@ -262,7 +262,7 @@ with right:
                   </div>
                   <div class="conv">{r['conversation']}</div>
                   <div class="rec">💡 {r['recommendation']}</div>
-                  <div class="miss">🔍 {r['skill_analysis']}</div>
+                  <div class="miss">🔍 {r['skill_analysis'].replace("Matched:", "<b>✅ Matched:</b>").replace("Missing:", "<br><b>❌ Missing:</b>").replace("Transferable:", "<br><b>🔄 Transferable:</b>")}</div>
                 </div>
                 """, unsafe_allow_html=True)
 
