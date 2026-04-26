@@ -11,7 +11,7 @@ from embeddings import build_vectorstore, search_candidates
 from agent import analyze_candidate, calculate_final_score
 
 # ── Page config ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="AI Recruiting Agent", page_icon="🧠", layout="wide")
+st.set_page_config(page_title="AI Recruiting Agent", page_icon="🤖", layout="wide")
 
 MAX_FILE_SIZE_MB = 20
 
@@ -121,7 +121,7 @@ with st.sidebar:
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown("## 🧠 AI Recruiting Agent")
+st.markdown("## 🤖 AI-Powered Talent Scouting & Engagement Agent")
 st.markdown("Rank candidates against any job description using semantic search + Groq AI.")
 st.divider()
 
